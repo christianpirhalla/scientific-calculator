@@ -19,6 +19,10 @@ public class Display {
         return displayValue;
     }
 
+    public void printDisplayValue() {
+        console.println(getDisplayValue());
+    }
+
     public void updateDisplay(String valueToDisplay) { // return the current value presented on the display
         this.displayValue = valueToDisplay;
     }
