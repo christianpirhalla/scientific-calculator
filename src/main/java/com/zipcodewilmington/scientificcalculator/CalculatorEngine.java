@@ -7,7 +7,7 @@ public class CalculatorEngine {
     private double x;
     private double y;
 
-    public CalculatorEngine calc = new CalculatorEngine() {
+    public CalculatorEngine() {
 
     };
 
