@@ -6,7 +6,7 @@ public class displayModeConversion {
     // how that value should be displayed depending on the display mode
 
     // we must account for binary, octal, decimal, and hexadecimal
-    public String convertToDisplayMode(String mode, Double value){
+    public static String convertToDisplayMode(String mode, Double value){
         Long valueLong = value.longValue(); // it is necessary to cast Double value to a long for certain cases
         switch(mode) {
 
