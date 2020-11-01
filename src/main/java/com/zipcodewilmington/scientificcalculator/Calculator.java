@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
+
+
 public class Calculator {
     private CalculatorEngine engine = new CalculatorEngine();
     // display will contain the I/O Console
@@ -16,9 +18,11 @@ public class Calculator {
     // this determines whether the calculator is on or not
     // true by default
     private Boolean isOn = true;
+    // this is the value that will be stored in memory
+    private Double memory = 0.0;
 
     //setters/getters
-    // we shouldn't need any for engine, display, or value, since they will all be passed to
+    // we shouldn't need any for engine, display, memory, or value, since they will all be passed to
     // other classes through this one.
     public Boolean getIsOn(){
         return isOn;
@@ -55,6 +59,14 @@ public class Calculator {
              * -ln
              * -invLn
              * -factorial
+             *
+             * Functional commands
+             * -help
+             * -clear
+             * -close
+             * -memoryadd
+             * -memoryclear
+             * -memorystore
              */
 
             //Start mathematical functions
@@ -75,6 +87,9 @@ public class Calculator {
                 value = engine.divide(value, (value, display.getIoConsole().getDoubleInput("Second operand?"));
                 break;
                  */
+            case "exp":
+                value = engine.square(value, display.getIoConsole().getDoubleInput("To what power would you like to raise the current value?"));
+                break;
 
             case "square": // what command do we use for normal exponentiation?
                 value = engine.square(value, 2);
@@ -138,14 +153,30 @@ public class Calculator {
 
 
             // Start functional commands - clear, close, memory, display mode, etc
-            case "help":
-
+            case "memoryadd":
+                value += memory;
+                memory = value;
                 break;
 
-            case "test":
-                File directory = new File("./");
+            case "resetmemory":
+                memory = 0.0;
+                break;
 
-                display.getIoConsole().println(directory.getAbsolutePath());
+            case "recallmemory":
+                value = memory;
+
+            case "help":
+                Scanner input = null;
+                try {
+                    input = new Scanner(new File("./src/main/java/com/zipcodewilmington/scientificcalculator/commands.txt"));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+                while (input.hasNextLine())
+                {
+                    display.getIoConsole().println(input.nextLine());
+                }
                 break;
 
             case "close":
@@ -157,7 +188,8 @@ public class Calculator {
                 break;
 
             default:
-                System.out.println("You have entered an invalid command.");
+                Console.println("You have entered an invalid command.");
+                Console.println("For a list of commands, enter 'help'");
                 break;
 
 

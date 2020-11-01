@@ -9,6 +9,7 @@ public class MainApplication {
 
 
         Console.println("Welcome to my calculator!");
+        Console.println("Enter 'help' for a list of commands.");
         /* these seem to just be tests/examples; should we just get rid of them?
         String s = Console.getStringInput("Enter a string");
         Integer i = Console.getIntegerInput("Enter an integer");
