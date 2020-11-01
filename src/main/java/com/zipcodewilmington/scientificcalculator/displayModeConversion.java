@@ -30,6 +30,8 @@ public class displayModeConversion {
 
             case "hexadecimal":
                 // Double has a built in method to return a hexadecimal String representation.
+                StringBuilder hexBuilder = new StringBuilder();
+
                 return Double.toHexString(value);
 
 

@@ -14,7 +14,7 @@ public class TestDisplayModeConversion {
     double testingValue = 200.0;
 
     // first test: hex
-    //Assert.assertEquals("C8", dmc.convertToDisplayMode("hexadecimal", testingValue));
+    Assert.assertEquals("0x1.9p7", dmc.convertToDisplayMode("hexadecimal", testingValue));
 
     // second test: binary
     Assert.assertEquals(dmc.convertToDisplayMode("binary", testingValue), "11001000");
