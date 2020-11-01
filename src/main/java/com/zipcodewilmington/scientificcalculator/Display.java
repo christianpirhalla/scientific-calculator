@@ -4,6 +4,7 @@ public class Display {
     private final Console console;
     private String displayValue;
     private displayModeConversion conversionMode;
+    private Boolean isMeasuringDegrees;
 
     public Display(Console console) {
         this.console = console;
@@ -52,6 +53,18 @@ public class Display {
         } else {
             switchDisplayTrigonometryMode();
         }
+    }
+
+    public Boolean isMeasuringDegrees() {
+        return this.isMeasuringDegrees;
+    }
+
+    public void switchToMeasuringDegrees(){
+        this.isMeasuringDegrees = true;
+    }
+
+    public void switchToMeasuringRadians() {
+        this.isMeasuringDegrees = false;
     }
 
     public void switchDisplayModeToDegrees() { //convert displayed value to degrees
