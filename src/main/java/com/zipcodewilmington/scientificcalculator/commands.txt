@@ -4,6 +4,10 @@ Available commands:
     -close (exit program)
     -help (show list of commands)
 
+    Memory:
+    -memoryadd (Add the displayed value to the value stored in memory, updating both)
+    -resetmemory (clear the value stored in memory)
+    -reallmemory (Clear the current value and set it to the value stored in memory)
 
     Arithmetic:
     -add
@@ -11,6 +15,7 @@ Available commands:
     -multiply
     -sqRoot (square root)
     -square
+    -exp
 
     Trigonometry:
     -degToRad (convert degrees to radians)
