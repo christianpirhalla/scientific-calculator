@@ -1,0 +1,30 @@
+Available commands:
+    Functional:
+    -clear (set current value to 0.0)
+    -close (exit program)
+    -help (show list of commands)
+
+
+    Arithmetic:
+    -add
+    -subtract
+    -multiply
+    -sqRoot (square root)
+    -square
+
+    Trigonometry:
+    -degToRad (convert degrees to radians)
+    -radToDeg (convert radians to degrees)
+    -sine
+    -cosine
+    -tangent
+    -arcsine
+    -arccosine
+    -arctangent
+
+    Scientific:
+    -commonlog
+    -inversecommonlog
+    -naturallog
+    -inversenaturallog
+    -factorial

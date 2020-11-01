@@ -1,6 +1,7 @@
 package com.zipcodewilmington.scientificcalculator;
 
 public class Display {
+
     private final Console console;
     private String displayValue;
     private displayModeConversion conversionMode;
@@ -10,6 +11,8 @@ public class Display {
         this.displayValue = null;
         this.conversionMode = new displayModeConversion();
     }
+    // added this in thru git - Christian 3:15PM
+    public Console getIoConsole(){ return console;}
 
     public Display() {
         this(new Console());
@@ -58,3 +61,4 @@ public class Display {
         this.conversionMode.convertToDisplayMode("radians", Double.parseDouble(getDisplayValue()));
     }
 }
+

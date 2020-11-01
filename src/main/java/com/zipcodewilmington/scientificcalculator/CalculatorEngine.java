@@ -1,12 +1,13 @@
+package com.zipcodewilmington.scientificcalculator;
+
 import static java.lang.Math.*;
-import static java.lang.System.*;
 
 public class CalculatorEngine {
 
     private double x;
     private double y;
 
-    public CalculatorEngine calc = new CalculatorEngine() {
+    public CalculatorEngine() {
 
     };
 
