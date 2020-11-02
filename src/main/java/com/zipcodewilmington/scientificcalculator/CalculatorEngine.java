@@ -1,18 +1,10 @@
 package com.zipcodewilmington.scientificcalculator;
-
 import static java.lang.Math.*;
 
 public class CalculatorEngine {
 
     private double x;
     private double y;
-
-    public CalculatorEngine() {
-
-    };
-
-    public static void main(String[] args) {
-    }
 
     //Arithmetic
     public static double add(double x, double y) {
@@ -27,10 +19,14 @@ public class CalculatorEngine {
         return (x * y);
     }
 
+    public static double divide(double x, double y) {
+        return x / y;
+    }
+
     //Exponentiation and square root
     public static double square(double x, double y) {
         return pow(x , y);
-    }//Handles both square (supply y = 2 default) and variable exponentiation.
+    }
 
     public static double sqRoot(double x) {
         return sqrt(x);
@@ -47,41 +43,28 @@ public class CalculatorEngine {
 
 
     //Trigonometry: all methods take x as an angle in radians.
-    //Because of angle/radian toggle feature will have to convert angles back to radians.
 
     public static double sine(double radians) {
-        double rad = degToRad(radians);
-    //Write if in radian mode, carry on; else if in degree mode, use variable deg.
         return sin(radians);
     }
 
     public static double cosine(double radians) {
-        double deg = radToDeg(radians);
-        //Write if in radian mode, carry on; else if in degree mode, use variable deg.
         return cos(radians);
     }
 
     public static double tangent(double radians) {
-        double deg = radToDeg(radians);
-        //Write if in radian mode, carry on; else if in degree mode, use variable deg.
         return tan(radians);
     }
 
     public static double aSine(double radians) {
-        double deg = radToDeg(radians);
-        //Write if in radian mode, carry on; else if in degree mode, use variable deg.
         return asin(radians);
     }
 
     public static double aCosine(double radians) {
-        double deg = radToDeg(radians);
-        //Write if in radian mode, carry on; else if in degree mode, use variable deg.
         return acos(radians);
     }
 
     public static double aTangent(double radians) {
-        double deg = radToDeg(radians);
-        //Write if in radian mode, carry on; else if in degree mode, use variable deg.
         return atan(radians);
     }
 
@@ -119,6 +102,14 @@ public class CalculatorEngine {
 
     }
 
-    //Write invert and inverse
+    //Invert and inverse
+
+    public double invertSign(double x) {
+        return x = -x;
+    }
+
+    public double inverse(double x) {
+        return x = 1/x;
+    }
 
 }
