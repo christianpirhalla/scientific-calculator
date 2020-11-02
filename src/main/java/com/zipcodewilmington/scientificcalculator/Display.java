@@ -17,7 +17,7 @@ public class Display {
 
     public Display() {
         this(new Console());
-    }
+    }  // constructor to make a new instance of console
 
     public String getDisplayValue() {  // retrieve displayed value
         return displayValue;
@@ -25,15 +25,15 @@ public class Display {
 
     public void printDisplayValue() {
         console.println(getDisplayValue());
-    }
+    }  // prints Display value to console
 
     public void updateDisplay(String valueToDisplay) { // return the current value presented on the display
         this.displayValue = valueToDisplay;
-    }
+    } // updates the display
 
     public void clearDisplayValue() { // clear the value on the display
         this.displayValue = null;
-    }
+    } // clears display
 
     public void switchDisplayModeToOctal() { // convert displayed value to expression in base eight
         this.conversionMode.convertToDisplayMode("octal", Double.parseDouble(getDisplayValue()));
@@ -70,11 +70,11 @@ public class Display {
         this.isMeasuringDegrees = false;
     }
 
-    public void switchDisplayModeToDegrees() { //convert displayed value to degrees
+    public void switchDisplayModeToDegrees() { // convert displayed value to degrees
         this.conversionMode.convertToDisplayMode("degree", Double.parseDouble(getDisplayValue()));
     }
 
-    public void switchDisplayModeToRadians() { //convert displayed value to radians
+    public void switchDisplayModeToRadians() { // convert displayed value to radians
         this.conversionMode.convertToDisplayMode("radians", Double.parseDouble(getDisplayValue()));
     }
 }
