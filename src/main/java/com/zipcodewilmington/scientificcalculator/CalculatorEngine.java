@@ -112,4 +112,16 @@ public class CalculatorEngine {
         return x = 1/x;
     }
 
+    //Extra methods
+
+    public double absolute(double x) {
+        return abs(x);
+    }
+
+    public double random(double x) {
+        return random(x);
+    }
+
+
+
 }
