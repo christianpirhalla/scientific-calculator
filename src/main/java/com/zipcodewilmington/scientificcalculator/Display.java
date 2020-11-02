@@ -52,7 +52,7 @@ public class Display {
     }
 
     public String switchDisplayModeToHexadecimal() { // convert displayed value to expression in base 16
-        return this.conversionMode.convertToDisplayMode("hexidecimal", Double.parseDouble(getDisplayValue()));
+        return this.conversionMode.convertToDisplayMode("hexadecimal", Double.parseDouble(getDisplayValue()));
     }
 
 }

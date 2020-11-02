@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 
 
+
+
 public class Calculator {
     private CalculatorEngine engine = new CalculatorEngine();
     // display will contain the I/O Console
@@ -19,10 +21,14 @@ public class Calculator {
     // this determines whether the calculator is on or not
     // true by default
     private Boolean isOn = true;
-    // this is the value that will be stored in memory
-    private String unitsMode = "radians";
     // this controls whether we're in radian or degree mode
+    private String unitsMode = "radians";
+    // this stores what display mode we're in
+    private String displayMode = "decimal";
+    // this is the value that will be stored in memory
     private Double memory = 0.0;
+    //This will say whether ther is an error present
+    private Boolean errorPresent = false;
 
     //setters/getters
     // we shouldn't need any for engine, display, memory, or value, since they will all be passed to
@@ -35,10 +41,9 @@ public class Calculator {
     }
 
     public void switchUnitsMode(String mode) {
-        if (!mode.equals("radians") && !mode.equals("degrees")){
+        if (!mode.equals("radians") && !mode.equals("degrees")) {
             display.getIoConsole().println("You selected an invalid unit mode. Please enter either 'radians' or 'degrees'");
-        }
-        else{
+        } else {
             unitsMode = mode;
         }
 
@@ -57,6 +62,37 @@ public class Calculator {
         display.getIoConsole().println("You are currently operating in " + unitsMode + " mode.");
 
     }
+
+    public void switchDisplayMode(String mode){
+        if (!mode.equals("binary") && !mode.equals("decimal") && !mode.equals("hexadecimal") && !mode.equals("octal")) {
+            display.getIoConsole().println("You entered an invalid display mode. Please enter binary, decimal, hexadecimal, or octal.");
+        }
+        else { displayMode = mode; }
+
+    }
+
+    public void switchDisplayMode(){
+        //cycle through
+        switch(displayMode){
+            case "binary":
+                displayMode = "decimal";
+                break;
+
+            case "decimal":
+                displayMode = "hexadecimal";
+                break;
+
+            case "hexadecimal":
+                displayMode = "octal";
+                break;
+
+            case "octal":
+                displayMode = "binary";
+                break;
+        }
+        Console.println("Display mode updated to " + displayMode + ".");
+    }
+
 
     // This is where we will handle commands and throw errors for invalid input
     public void handleCommands(String cmd){ // This method is huge! Feel free to collapse
@@ -217,7 +253,7 @@ public class Calculator {
                 break;
 
             case "random":
-                value = engine.random(value);
+                value = engine.randomNum();
                 break;
 
 
@@ -242,6 +278,15 @@ public class Calculator {
             case "switchunits":
                 switchUnitsMode(display.getIoConsole().getStringInput("Please enter desired units (either degrees or radians)"));
                 break;
+
+            case "toggledisplay":
+                switchDisplayMode();
+                break;
+
+            case "switchdisplay":
+                switchDisplayMode(display.getIoConsole().getStringInput("Please enter the desired display mode (decimal, binary, hexadecimal, or octal)"));
+                break;
+
 
             case "help":
                 Scanner input = null;
@@ -281,12 +326,49 @@ public class Calculator {
         //prompt user for the command that they want, store it in a String
         String commandEntered = Console.getStringInput("Please enter a command.");
         //handle command
-        handleCommands(commandEntered);
 
-        //update the display
+        //If there is an error present, don't allow further operation until it is cleared!
+        if (errorPresent && !commandEntered.equals("clear")){
+            // System.out.println(commandEntered + " was the command");
+            display.getIoConsole().println("Invalid operation: Errors must be cleared before any other operation can take place.");
+        }
+        else { // if no error, proceed as normal
+            handleCommands(commandEntered);
+        }
+        //update and print the display
 
-        //placeholder for now:
-        Console.println(String.valueOf(value));
+        //if we have an error, we must display it and set errorPresent to true
+        if (value.isNaN()|| value.isInfinite()){
+            display.updateDisplay("Err");
+            errorPresent = true;
+        }
+        else // if not, proceed as normal
+            {
+
+            errorPresent = false;
+            display.updateDisplay(value.toString());
+            switch (displayMode) {
+
+                case "decimal":
+                    display.updateDisplay(display.switchDisplayModeToDecimal());
+                    break;
+
+                case "binary":
+                    display.updateDisplay(display.switchDisplayModeToBinary());
+                    break;
+
+                case "hexadecimal":
+                    display.updateDisplay(display.switchDisplayModeToHexadecimal());
+                    break;
+
+                case "octal":
+                    display.updateDisplay(display.switchDisplayModeToOctal());
+                    break;
+
+            }
+        }
+        display.printDisplayValue();
+
 
     }
 
