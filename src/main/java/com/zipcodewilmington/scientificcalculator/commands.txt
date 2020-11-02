@@ -2,6 +2,8 @@ Available commands:
     Functional:
     -toggleunits (toggle through degrees/radians)
     -switchunits (set units manually)
+    -toggledisplay (toggle through binary/decimal/hexadecimal/octal)
+    -switchdisplay (set display manually)
     -clear (set current value to 0.0)
     -close (exit program)
     -help (show list of commands)
