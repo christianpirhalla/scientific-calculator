@@ -13,8 +13,11 @@ public class Display {
         this.displayValue = null;
         this.conversionMode = new displayModeConversion();
     }
+
     // added this in thru git - Christian 3:15PM
-    public Console getIoConsole(){ return console;}
+    public Console getIoConsole() {
+        return console;
+    }
 
     public Display() {
         this(new Console());
@@ -38,12 +41,12 @@ public class Display {
 
     public String switchDisplayModeToBinary() {
         this.conversionMode.convertToDisplayMode("binary", Double.parseDouble(getDisplayValue()));
-            return convertToDisplayMode;
+        return convertToDisplayMode;
     }
 
     public String switchDisplayModeToOctal() { // convert displayed value to expression in base eight
         this.conversionMode.convertToDisplayMode("octal", Double.parseDouble(getDisplayValue()));
-            return convertToDisplayMode;
+        return convertToDisplayMode;
     }
 
     public String switchDisplayModeToDecimal() { // convert displayed value to expression in base 10
@@ -56,24 +59,10 @@ public class Display {
         return convertToDisplayMode;
     }
 
-    public void switchDisplayTrigonometryMode() {
-        String userInput = console.getStringInput("Would you like to calculate in degrees or radians?");
-        if ("degrees".equalsIgnoreCase(userInput)) {
-            switchDisplayModeToDegrees();
-        } else if ("radians".equalsIgnoreCase(userInput)) {
-            switchDisplayModeToRadians();
-        } else {
-            switchDisplayTrigonometryMode();
-        }
-    }
-
-
-    public void switchDisplayModeToDegrees() { // convert displayed value to degrees
-        this.conversionMode.convertToDisplayMode("degree", Double.parseDouble(getDisplayValue()));
-    }
-
-    public void switchDisplayModeToRadians() { // convert displayed value to radians
-        this.conversionMode.convertToDisplayMode("radians", Double.parseDouble(getDisplayValue()));
-    }
 }
+
+
+
+
+
 
