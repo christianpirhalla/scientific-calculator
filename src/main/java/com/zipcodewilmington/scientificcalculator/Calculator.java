@@ -19,6 +19,8 @@ public class Calculator {
     // true by default
     private Boolean isOn = true;
     // this is the value that will be stored in memory
+    private Boolean radianMode = true;
+    // this controls whether we're in radian or degree mode
     private Double memory = 0.0;
 
     //setters/getters
