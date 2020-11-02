@@ -40,23 +40,19 @@ public class Display {
     } // clears display
 
     public String switchDisplayModeToBinary() {
-        this.conversionMode.convertToDisplayMode("binary", Double.parseDouble(getDisplayValue()));
-        return convertToDisplayMode;
+        return this.conversionMode.convertToDisplayMode("binary", Double.parseDouble(getDisplayValue()));
     }
 
     public String switchDisplayModeToOctal() { // convert displayed value to expression in base eight
-        this.conversionMode.convertToDisplayMode("octal", Double.parseDouble(getDisplayValue()));
-        return convertToDisplayMode;
+        return this.conversionMode.convertToDisplayMode("octal", Double.parseDouble(getDisplayValue()));
     }
 
     public String switchDisplayModeToDecimal() { // convert displayed value to expression in base 10
-        this.conversionMode.convertToDisplayMode("decimal", Double.parseDouble(getDisplayValue()));
-        return convertToDisplayMode;
+        return this.conversionMode.convertToDisplayMode("decimal", Double.parseDouble(getDisplayValue()));
     }
 
     public String switchDisplayModeToHexadecimal() { // convert displayed value to expression in base 16
-        this.conversionMode.convertToDisplayMode("hexidecimal", Double.parseDouble(getDisplayValue()));
-        return convertToDisplayMode;
+        return this.conversionMode.convertToDisplayMode("hexidecimal", Double.parseDouble(getDisplayValue()));
     }
 
 }

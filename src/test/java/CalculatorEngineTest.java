@@ -3,6 +3,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
+import static java.lang.Math.*;
+import java.util.function.*;
 
 
 
@@ -78,25 +80,37 @@ class CalculatorEngineTest {
 
     @Test
     void cosine() {
-        double expected = 0.8509035245341184;
-        double actual = CalculatorEngine.sine(45);
+        double expected = -0.4161468365471424;
+        double actual = CalculatorEngine.cosine(2);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void tangent() {
+        double expected = -0.1425465430742778;
+        double actual = CalculatorEngine.tangent(3);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void aSine() {
+        double expected = 0.5510698464925733;
+        double actual = CalculatorEngine.aSine(0.523599);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void aCosine() {
+        double expected = 1.0471975511965979;
+        double actual = CalculatorEngine.aCosine(0.5);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void aTangent() {
+        double expected = 1.4125642791467878;
+        double actual = CalculatorEngine.aTangent(6.267);
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
@@ -134,6 +148,13 @@ class CalculatorEngineTest {
         double expected = 120;
         double actual = CalculatorEngine.factorial(5);
         Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    void randomNum() {
+        double actual = CalculatorEngine.randomNum();
+        Assertions.assertTrue(actual < 1000);
 
     }
 }
