@@ -1,5 +1,6 @@
 package com.zipcodewilmington.scientificcalculator;
 import static java.lang.Math.*;
+import java.util.function.Function;
 
 public class CalculatorEngine {
 
@@ -118,8 +119,8 @@ public class CalculatorEngine {
         return abs(x);
     }
 
-    public double random(double x) {
-        return random(x);
+    public static double randomNum() {
+        return random()*1000;
     }
 
 
