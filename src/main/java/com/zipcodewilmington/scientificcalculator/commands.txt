@@ -1,5 +1,7 @@
 Available commands:
     Functional:
+    -toggleunits (toggle through degrees/radians)
+    -switchunits (set units manually)
     -clear (set current value to 0.0)
     -close (exit program)
     -help (show list of commands)
@@ -13,9 +15,12 @@ Available commands:
     -add
     -subtract
     -multiply
+    -divide
     -sqRoot (square root)
     -square
     -exp
+    -absolutevalue
+    -random (sets value to a random number)
 
     Trigonometry:
     -degToRad (convert degrees to radians)

@@ -13,8 +13,11 @@ public class Display {
         this.displayValue = null;
         this.conversionMode = new displayModeConversion();
     }
+
     // added this in thru git - Christian 3:15PM
-    public Console getIoConsole(){ return console;}
+    public Console getIoConsole() {
+        return console;
+    }
 
     public Display() {
         this(new Console());
@@ -52,24 +55,10 @@ public class Display {
         return this.conversionMode.convertToDisplayMode("hexidecimal", Double.parseDouble(getDisplayValue()));
     }
 
-    public void switchDisplayTrigonometryMode() {
-        String userInput = console.getStringInput("Would you like to calculate in degrees or radians?");
-        if ("degrees".equalsIgnoreCase(userInput)) {
-            switchDisplayModeToDegrees();
-        } else if ("radians".equalsIgnoreCase(userInput)) {
-            switchDisplayModeToRadians();
-        } else {
-            switchDisplayTrigonometryMode();
-        }
-    }
-
-
-    public void switchDisplayModeToDegrees() { // convert displayed value to degrees
-        this.conversionMode.convertToDisplayMode("degree", Double.parseDouble(getDisplayValue()));
-    }
-
-    public void switchDisplayModeToRadians() { // convert displayed value to radians
-        this.conversionMode.convertToDisplayMode("radians", Double.parseDouble(getDisplayValue()));
-    }
 }
+
+
+
+
+
 
