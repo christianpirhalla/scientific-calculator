@@ -206,6 +206,7 @@ public class Calculator {
         handleCommands(commandEntered);
 
         //update the display
+
         //placeholder for now:
         Console.println(String.valueOf(value));
 
